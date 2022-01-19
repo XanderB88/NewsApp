@@ -19,7 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = NewsViewController()
+        
+        let assembly = Assembly()
+        
+        window?.rootViewController = assembly.buildNewsScreen()
         window?.makeKeyAndVisible()
     }
 
