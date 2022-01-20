@@ -6,12 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-import Foundation
-
-protocol NewsPresentationLogic {
+protocol NewsPresentationLogic: AnyObject {
     
-    func presentData()
+    func present(data: [News])
 }
 
 class NewsViewPresenter {
@@ -19,10 +18,17 @@ class NewsViewPresenter {
     weak var viewController: NewsDisplayLogic?
 }
 
-// MARK: - News presentation logic
+// MARK: - News presentation logic implementation
 extension NewsViewPresenter: NewsPresentationLogic {
-  
-    func presentData() {
+    
+    func present(data: [News]) {
         
+        let viewModel = data.map { model -> NewsCellModel in
+            let cellModel = NewsCellModel(title: model.title,
+                                          author: model.author,
+                                          url: model.url)
+            return cellModel
+        }
+        viewController?.display(data: viewModel)
     }
 }
