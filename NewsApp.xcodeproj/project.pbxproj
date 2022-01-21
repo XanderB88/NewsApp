@@ -19,7 +19,7 @@
 		1190E09D27963CC00030B6E8 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1190E09C27963CC00030B6E8 /* NewsViewController.swift */; };
 		1190E0A227963CC40030B6E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1190E0A127963CC40030B6E8 /* Assets.xcassets */; };
 		1190E0A527963CC40030B6E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1190E0A327963CC40030B6E8 /* LaunchScreen.storyboard */; };
-		1190E0B027963CC40030B6E8 /* NewsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1190E0AF27963CC40030B6E8 /* NewsAppTests.swift */; };
+		1190E0B027963CC40030B6E8 /* NewsModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1190E0AF27963CC40030B6E8 /* NewsModelTests.swift */; };
 		1190E0BA27963CC50030B6E8 /* NewsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1190E0B927963CC50030B6E8 /* NewsAppUITests.swift */; };
 		1190E0BC27963CC50030B6E8 /* NewsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1190E0BB27963CC50030B6E8 /* NewsAppUITestsLaunchTests.swift */; };
 		11FC1D312796699D00C0C9D8 /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11FC1D302796699D00C0C9D8 /* NewsViewController.xib */; };
@@ -58,7 +58,7 @@
 		1190E0A427963CC40030B6E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1190E0A627963CC40030B6E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1190E0AB27963CC40030B6E8 /* NewsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1190E0AF27963CC40030B6E8 /* NewsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppTests.swift; sourceTree = "<group>"; };
+		1190E0AF27963CC40030B6E8 /* NewsModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModelTests.swift; sourceTree = "<group>"; };
 		1190E0B527963CC50030B6E8 /* NewsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1190E0B927963CC50030B6E8 /* NewsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITests.swift; sourceTree = "<group>"; };
 		1190E0BB27963CC50030B6E8 /* NewsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -104,6 +104,14 @@
 			isa = PBXGroup;
 			children = (
 				1165E85C2798EA660094412B /* NewsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1187018F279A52390042EFA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1190E0AF27963CC40030B6E8 /* NewsModelTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,7 +178,7 @@
 		1190E0AE27963CC40030B6E8 /* NewsAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				1190E0AF27963CC40030B6E8 /* NewsAppTests.swift */,
+				1187018F279A52390042EFA5 /* Model */,
 			);
 			path = NewsAppTests;
 			sourceTree = "<group>";
@@ -190,8 +198,8 @@
 				1165E8542798E3D70094412B /* NewsCell */,
 				11FC1D302796699D00C0C9D8 /* NewsViewController.xib */,
 				1190E09C27963CC00030B6E8 /* NewsViewController.swift */,
-				118ED7A72797A678004DA179 /* NewsViewPresenter.swift */,
 				118ED7A52797A658004DA179 /* NewsViewInteractor.swift */,
+				118ED7A72797A678004DA179 /* NewsViewPresenter.swift */,
 			);
 			path = NewsScreen;
 			sourceTree = "<group>";
@@ -344,7 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1190E0B027963CC40030B6E8 /* NewsAppTests.swift in Sources */,
+				1190E0B027963CC40030B6E8 /* NewsModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

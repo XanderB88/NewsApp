@@ -8,12 +8,27 @@
 import Foundation
 
 struct NewsResult {
+    
     let hits: [News]
+    
+    init(hits: [News]) {
+       
+        self.hits = hits
+    }
 }
 
 struct News {
+   
     let objectID: String
     let title: String
     let url: String
     let author: String
+    
+    init(objectID: String, title: String, url: String, author: String) {
+       
+        self.objectID = objectID
+        self.title = title
+        self.url = url
+        self.author = author
+    }
 }

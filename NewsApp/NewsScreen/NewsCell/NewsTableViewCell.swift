@@ -15,6 +15,7 @@ class NewsTableViewCell: UITableViewCell {
     
     static let cellIdentifier = "NewsCell"
 
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,8 +27,9 @@ class NewsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // MARK: - Internal logic
     func setup(data: NewsCellModel) {
-        
+
         titleLabel.text = data.title
         authorLabel.text = data.author
     }
