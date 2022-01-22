@@ -16,14 +16,18 @@ class NewsViewInteractor {
     
     var presenter: NewsPresentationLogic?
     var worker: NetworkServiceLogic!
+    
+    init(presenter: NewsViewPresenter, worker: NetworkServiceLogic) {
+        
+        self.presenter = presenter
+        self.worker = worker
+    }
 }
 
 // MARK: - News business logic implementation
 extension NewsViewInteractor: NewsBusinessLogic {
    
     func fetchNews() {
-        
-        worker = NetworkService()
         
         worker?.fetchNews(completionHandler: { result in
             

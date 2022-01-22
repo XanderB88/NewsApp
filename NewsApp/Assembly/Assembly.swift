@@ -16,16 +16,11 @@ class Assembly: AssemblyBuilder {
   
     func buildNewsScreen() -> UIViewController {
         
-        print("Im here")
         let viewController = NewsViewController()
-        print(viewController)
-        let presenter = NewsViewPresenter()
-        print(presenter)
-        let interactor = NewsViewInteractor()
-        print(interactor)
+        let worker = NetworkService()
+        let presenter = NewsViewPresenter(viewController: viewController)
+        let interactor = NewsViewInteractor(presenter: presenter, worker: worker)
         
-        interactor.presenter = presenter
-        presenter.viewController = viewController
         viewController.interactor = interactor
         
         return viewController

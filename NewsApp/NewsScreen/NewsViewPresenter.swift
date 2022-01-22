@@ -16,6 +16,11 @@ protocol NewsPresentationLogic: AnyObject {
 class NewsViewPresenter {
     
     weak var viewController: NewsDisplayLogic?
+    
+    init(viewController: NewsDisplayLogic) {
+       
+        self.viewController = viewController
+    }
 }
 
 // MARK: - News presentation logic implementation
@@ -26,7 +31,7 @@ extension NewsViewPresenter: NewsPresentationLogic {
         let viewModel = data.map { model -> NewsCellModel in
             let cellModel = NewsCellModel(title: model.title,
                                           author: model.author,
-                                          url: model.url)
+                                          url: model.url ?? "https://news.ycombinator.com/item?id=\(model.objectID)")
             return cellModel
         }
         viewController?.display(data: viewModel)

@@ -21,10 +21,10 @@ struct News: Decodable {
    
     let objectID: String
     let title: String
-    let url: String
+    let url: String?
     let author: String
     
-    init(objectID: String, title: String, url: String, author: String) {
+    init(objectID: String, title: String, url: String?, author: String) {
        
         self.objectID = objectID
         self.title = title

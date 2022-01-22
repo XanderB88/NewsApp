@@ -29,7 +29,6 @@ class NewsViewController: UIViewController {
         super.viewDidLoad()
         
         configureTableView()
-    
         interactor?.fetchNews()
     }
     
