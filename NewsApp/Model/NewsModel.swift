@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsResult {
+struct NewsResult: Decodable {
     
     let hits: [News]
     
@@ -17,7 +17,7 @@ struct NewsResult {
     }
 }
 
-struct News {
+struct News: Decodable {
    
     let objectID: String
     let title: String
