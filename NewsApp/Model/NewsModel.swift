@@ -10,11 +10,6 @@ import Foundation
 struct NewsResult: Decodable {
     
     let hits: [News]
-    
-    init(hits: [News]) {
-       
-        self.hits = hits
-    }
 }
 
 struct News: Decodable {

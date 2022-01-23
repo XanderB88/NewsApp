@@ -15,9 +15,9 @@ protocol NewsBusinessLogic: AnyObject {
 class NewsViewInteractor {
     
     var presenter: NewsPresentationLogic?
-    var worker: NetworkServiceLogic!
+    var worker: NetworkServiceWorkingLogic!
     
-    init(presenter: NewsViewPresenter, worker: NetworkServiceLogic) {
+    init(presenter: NewsPresentationLogic, worker: NetworkServiceWorkingLogic) {
         
         self.presenter = presenter
         self.worker = worker

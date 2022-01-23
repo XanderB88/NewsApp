@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol NetworkServiceLogic {
+protocol NetworkServiceWorkingLogic {
     
     func fetchNews(completionHandler: @escaping (Result<[News], Error>) -> Void)
 }
 
-class NetworkService: NetworkServiceLogic {
+class NetworkService: NetworkServiceWorkingLogic {
     
     func fetchNews(completionHandler: @escaping (Result<[News], Error>) -> Void) {
        

@@ -20,11 +20,9 @@ class NewsModelTests: XCTestCase {
    
     func testInitNewsResultWithNews() {
         
-        let news = [
-            News(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
-        ]
+        let news = News(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
        
-        let newsResult = NewsResult(hits: news)
+        let newsResult = NewsResult(hits: [news])
         
         XCTAssertNotNil(newsResult)
     }
