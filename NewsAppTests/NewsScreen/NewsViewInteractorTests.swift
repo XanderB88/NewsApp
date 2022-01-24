@@ -10,32 +10,43 @@ import XCTest
 
 class NewsViewInteractorTests: XCTestCase {
 
-    private var worker: NetworkServiceSpy!
-    private var presenter: NewsViewPresenterSpy!
+    private var workerSpy: NetworkServiceSpy!
+    private var presenterSpy: NewsViewPresenterSpy!
     private var sut: NewsViewInteractor!
     
-    override func setUp() {
-        super.setUp()
+    
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         
-        worker = NetworkServiceSpy()
-        presenter = NewsViewPresenterSpy()
-        sut = NewsViewInteractor(presenter: presenter, worker: worker)
-    }
-
-    override func tearDown() {
-        worker = nil
-        presenter = nil
-        sut = nil
+        sut = NewsViewInteractor()
+        workerSpy = NetworkServiceSpy()
+        presenterSpy = NewsViewPresenterSpy()
         
-        super.tearDown()
+        sut.worker = workerSpy
+        sut.presenter = presenterSpy
     }
     
-    func testFetchNews() {
+    override func tearDownWithError() throws {
+       
+        sut = nil
+        workerSpy = nil
+        presenterSpy = nil
+        
+        try super.tearDownWithError()
+    }
+    
+    func testFetchNewsCallWorkerToFetch() throws {
         
         sut.fetchNews()
         
-        XCTAssertTrue(worker.isCalledFetchNews, "Not started worker.fetchNews(:)")
-//        XCTAssertTrue(presenter.isCalledPresentFetchedNews, "Not started presenter.present(:)")
+        XCTAssertTrue(workerSpy.isCalledFetchNews, "Not started worker.fetchNews()")
+    }
+    
+    func testFetchNewsCallPresenterToFetch() throws {
+        
+        sut.fetchNews()
+        
+        XCTAssertTrue(presenterSpy.isCalledPresentFetchedNews, "Not started presenter.present(:)")
     }
 
 }

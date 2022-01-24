@@ -9,12 +9,11 @@ import Foundation
 @testable import NewsApp
 
 class NewsViewPresenterSpy: NewsPresentationLogic {
-   
+    
     private(set) var isCalledPresentFetchedNews = false
     
     func present(data: [News]) {
         
         isCalledPresentFetchedNews = true
-        print(isCalledPresentFetchedNews)
     }
 }

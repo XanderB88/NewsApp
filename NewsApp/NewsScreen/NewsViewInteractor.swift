@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NewsBusinessLogic: AnyObject {
+protocol NewsBusinessLogic {
     
     func fetchNews()
 }
@@ -15,13 +15,7 @@ protocol NewsBusinessLogic: AnyObject {
 class NewsViewInteractor {
     
     var presenter: NewsPresentationLogic?
-    var worker: NetworkServiceWorkingLogic!
-    
-    init(presenter: NewsPresentationLogic, worker: NetworkServiceWorkingLogic) {
-        
-        self.presenter = presenter
-        self.worker = worker
-    }
+    lazy var worker: NetworkServiceWorkingLogic = NetworkService()
 }
 
 // MARK: - News business logic implementation
@@ -29,15 +23,13 @@ extension NewsViewInteractor: NewsBusinessLogic {
    
     func fetchNews() {
         
-        worker?.fetchNews(completionHandler: { result in
+        worker.fetchNews(completionHandler: { result in
             
             switch result {
                 case .success(let result):
                     
-                    DispatchQueue.main.async {
-                        
                         self.presenter?.present(data: result)
-                    }
+
                 case .failure(let error):
                  
                     print(error.localizedDescription)

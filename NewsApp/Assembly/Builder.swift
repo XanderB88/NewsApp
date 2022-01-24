@@ -7,20 +7,21 @@
 
 import UIKit
 
-protocol AssemblyBuilder {
+protocol BuildingLogic {
     
     func buildNewsScreen() -> UIViewController
 }
 
-class Assembly: AssemblyBuilder {
+class Builder: BuildingLogic {
   
     func buildNewsScreen() -> UIViewController {
         
         let viewController = NewsViewController()
-        let worker = NetworkService()
-        let presenter = NewsViewPresenter(viewController: viewController)
-        let interactor = NewsViewInteractor(presenter: presenter, worker: worker)
+        let presenter = NewsViewPresenter()
+        let interactor = NewsViewInteractor()
         
+        interactor.presenter = presenter
+        presenter.viewController = viewController
         viewController.interactor = interactor
         
         return viewController
