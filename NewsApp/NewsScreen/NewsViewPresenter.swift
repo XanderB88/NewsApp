@@ -30,9 +30,6 @@ extension NewsViewPresenter: NewsPresentationLogic {
             return cellModel
         }
         
-        DispatchQueue.main.async {
-            
-            self.viewController?.display(data: viewModel)
-        }
+        self.viewController?.display(data: viewModel)
     }
 }

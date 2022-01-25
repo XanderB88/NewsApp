@@ -11,9 +11,11 @@ import Foundation
 class NewsViewPresenterSpy: NewsPresentationLogic {
     
     private(set) var isCalledPresentFetchedNews = false
+    private(set) var news: [News] = [] 
     
     func present(data: [News]) {
         
+        self.news = data
         isCalledPresentFetchedNews = true
     }
 }

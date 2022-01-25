@@ -74,11 +74,13 @@ extension NewsViewController: NewsDisplayLogic {
     
     func display(data: [NewsCellModel]) {
         
-        dataToDisplay.removeAll()
-        dataToDisplay.append(contentsOf: data)
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.dataToDisplay.removeAll()
+            self.dataToDisplay.append(contentsOf: data)
+            self.tableView.reloadData()
+            
+        }
     }
 }
-
 
 
