@@ -10,7 +10,7 @@ import UIKit
 
 protocol NewsPresentationLogic {
     
-    func present(data: [News])
+    func present(data: [Article])
 }
 
 class NewsViewPresenter {
@@ -21,7 +21,7 @@ class NewsViewPresenter {
 // MARK: - News presentation logic implementation
 extension NewsViewPresenter: NewsPresentationLogic {
     
-    func present(data: [News]) {
+    func present(data: [Article]) {
         
         let viewModel = data.map { model -> NewsCellModel in
             let cellModel = NewsCellModel(title: model.title,

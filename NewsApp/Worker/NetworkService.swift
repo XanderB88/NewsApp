@@ -9,12 +9,12 @@ import Foundation
 
 protocol NetworkServiceWorkingLogic {
     
-    func fetchNews(completionHandler: @escaping (Result<[News], Error>) -> Void)
+    func fetchNews(completionHandler: @escaping (Result<[Article], Error>) -> Void)
 }
 
 class NetworkService: NetworkServiceWorkingLogic {
     
-    func fetchNews(completionHandler: @escaping (Result<[News], Error>) -> Void) {
+    func fetchNews(completionHandler: @escaping (Result<[Article], Error>) -> Void) {
        
         guard let url = URL(string: "https://hn.algolia.com/api/v1/search_by_date?tags=story") else { return }
         
@@ -32,7 +32,7 @@ class NetworkService: NetworkServiceWorkingLogic {
             
             do {
             
-                let newsResult = try decoder.decode(NewsResult.self, from: safeData)
+                let newsResult = try decoder.decode(NewsArticles.self, from: safeData)
                 completionHandler(.success(newsResult.hits))
             } catch {
                 

@@ -12,7 +12,7 @@ class NewsViewPresenterTests: XCTestCase {
 
     private var viewControllerSpy: NewsViewControllerSpy!
     private var sut: NewsViewPresenter!
-    private var newsResult: [News]!
+    private var newsArticles: [Article]!
     
     
     override func setUpWithError() throws {
@@ -23,9 +23,9 @@ class NewsViewPresenterTests: XCTestCase {
         
         sut.viewController = viewControllerSpy
         
-        newsResult = [
-            News(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux"),
-            News(objectID: "Qux", title: "Baz", url: "Bar", author: "Foo")
+        newsArticles = [
+            Article(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux"),
+            Article(objectID: "Qux", title: "Baz", url: "Bar", author: "Foo")
         ]
     }
 
@@ -46,8 +46,8 @@ class NewsViewPresenterTests: XCTestCase {
     
     func testPresentFetchedNewsShouldFormatFetchedNewsForDisplay() throws {
         
-        sut.present(data: newsResult)
+        sut.present(data: newsArticles)
         
-        XCTAssertEqual(viewControllerSpy.displayedNews.count, newsResult.count, "present(:) should ask the view controller to display the same amount of news it recieve")
+        XCTAssertEqual(viewControllerSpy.displayedNews.count, newsArticles.count, "present(:) should ask the view controller to display the same amount of news it recieve")
     }
 }

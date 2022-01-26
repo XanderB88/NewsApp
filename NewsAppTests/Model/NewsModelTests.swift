@@ -13,23 +13,23 @@ class NewsModelTests: XCTestCase {
     
     func testInitNewsWithProperties() {
         
-        let news = News(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
+        let news = Article(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
         
         XCTAssertNotNil(news)
     }
    
     func testInitNewsResultWithNews() {
         
-        let news = News(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
+        let news = Article(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
        
-        let newsResult = NewsResult(hits: [news])
+        let newsResult = NewsArticles(hits: [news])
         
         XCTAssertNotNil(newsResult)
     }
     
     func testWhenGivenPropertiesSetProperties() {
         
-        let news = News(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
+        let news = Article(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux")
         
         XCTAssertEqual(news.objectID, "Foo")
         XCTAssertEqual(news.title, "Bar")

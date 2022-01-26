@@ -12,14 +12,14 @@ class NetworkServiceSpy: NetworkServiceWorkingLogic {
    
     private(set) var isCalledFetchNews = false
     
-    let newsResult: [News] = [
-        News(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux"),
-        News(objectID: "Qux", title: "Baz", url: "Bar", author: "Foo")
+    let newsArticles: [Article] = [
+        Article(objectID: "Foo", title: "Bar", url: "Baz", author: "Qux"),
+        Article(objectID: "Qux", title: "Baz", url: "Bar", author: "Foo")
     ]
    
-    func fetchNews(completionHandler: @escaping (Result<[News], Error>) -> Void) {
+    func fetchNews(completionHandler: @escaping (Result<[Article], Error>) -> Void) {
         
         isCalledFetchNews = true
-        completionHandler(.success(newsResult))
+        completionHandler(.success(newsArticles))
     }
 }
