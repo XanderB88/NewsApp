@@ -10,6 +10,7 @@ import UIKit
 protocol BuildingLogic {
     
     func buildNewsScreen() -> UIViewController
+    func buildNewsDetailScreen() -> UIViewController
 }
 
 class Builder: BuildingLogic {
@@ -19,6 +20,24 @@ class Builder: BuildingLogic {
         let viewController = NewsViewController()
         let presenter = NewsViewPresenter()
         let interactor = NewsViewInteractor()
+        let router = NewsViewRouter()
+        let builder = Builder()
+        
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        viewController.interactor = interactor
+        router.viewController = viewController
+        router.newsDetailBuilder = builder
+        viewController.router = router
+        
+        return viewController
+    }
+    
+    func buildNewsDetailScreen() -> UIViewController {
+        
+        let viewController = NewsDetailViewController()
+        let presenter = NewsDetailViewPresenter()
+        let interactor = NewsDetailViewInteractor()
         
         interactor.presenter = presenter
         presenter.viewController = viewController

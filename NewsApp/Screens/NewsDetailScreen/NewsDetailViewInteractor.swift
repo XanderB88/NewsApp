@@ -17,6 +17,7 @@ class NewsDetailViewInteractor {
     var presenter: NewsDetailPresentationLogic?
 }
 
+// MARK: - News detail business logic
 extension NewsDetailViewInteractor: NewsDetailBusinessLogic {
     
 }

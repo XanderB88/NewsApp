@@ -23,5 +23,15 @@ class NewsDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let homePage = "https://www.apple.com"
+        let url = URL(string: homePage)
+        let request = URLRequest(url: url!)
+       
+        webView.load(request)
     }
+}
+
+// MARK: - News detail display logic
+extension NewsDetailViewController: NewsDetailDisplayLogic {
+    
 }

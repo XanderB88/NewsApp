@@ -19,8 +19,10 @@ class NewsViewController: UIViewController {
     
     // MARK: - External variables
     
+ 
     // MARK: - Internal variables
     var interactor: NewsBusinessLogic?
+    var router: NewsViewRoutingLogic!
    
     private var dataToDisplay = [NewsCellModel]()
     
@@ -66,6 +68,8 @@ extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        router?.navigateToNewsDetail()
     }
 }
 

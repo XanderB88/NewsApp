@@ -17,6 +17,7 @@ class NewsDetailViewPresenter {
     weak var viewController: NewsDetailDisplayLogic?
 }
 
+// MARK: - News detail presentation logic
 extension NewsDetailViewPresenter: NewsDetailPresentationLogic {
     
 }
