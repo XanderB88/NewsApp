@@ -8,14 +8,14 @@
 import UIKit
 
 protocol NewsViewRoutingLogic {
-    
+
     func navigateToNewsDetail()
 }
 
 class NewsViewRouter {
     
     weak var viewController: UIViewController?
-    var newsDetailBuilder: BuildingLogic!
+    var newsDetailBuilder: NewsDetailViewBuildingLogic!
 }
 
 extension NewsViewRouter: NewsViewRoutingLogic {
@@ -24,6 +24,6 @@ extension NewsViewRouter: NewsViewRoutingLogic {
         
         guard let newsDetailViewController = newsDetailBuilder?.buildNewsDetailScreen() else { return }
         
-        viewController?.show(newsDetailViewController, sender: self)
+        viewController?.navigationController?.show(newsDetailViewController, sender: self)
     }
 }

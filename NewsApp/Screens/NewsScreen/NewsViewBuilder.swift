@@ -1,19 +1,18 @@
 //
-//  Assembly.swift
+//  NewsViewBuilder.swift
 //  NewsApp
 //
-//  Created by Alexander on 19.01.2022.
+//  Created by Alexander on 28.01.2022.
 //
 
 import UIKit
 
-protocol BuildingLogic {
+protocol NewsViewBuildingLogic {
     
     func buildNewsScreen() -> UIViewController
-    func buildNewsDetailScreen() -> UIViewController
 }
 
-class Builder: BuildingLogic {
+class NewsBuilder: NewsViewBuildingLogic {
   
     func buildNewsScreen() -> UIViewController {
         
@@ -21,7 +20,7 @@ class Builder: BuildingLogic {
         let presenter = NewsViewPresenter()
         let interactor = NewsViewInteractor()
         let router = NewsViewRouter()
-        let builder = Builder()
+        let builder = NewsDetailBuilder()
         
         interactor.presenter = presenter
         presenter.viewController = viewController
@@ -30,19 +29,9 @@ class Builder: BuildingLogic {
         router.newsDetailBuilder = builder
         viewController.router = router
         
-        return viewController
-    }
-    
-    func buildNewsDetailScreen() -> UIViewController {
-        
-        let viewController = NewsDetailViewController()
-        let presenter = NewsDetailViewPresenter()
-        let interactor = NewsDetailViewInteractor()
-        
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        viewController.interactor = interactor
+        viewController.title = "News"
         
         return viewController
     }
 }
+

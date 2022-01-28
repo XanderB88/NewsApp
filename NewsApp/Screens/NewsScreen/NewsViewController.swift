@@ -22,7 +22,7 @@ class NewsViewController: UIViewController {
  
     // MARK: - Internal variables
     var interactor: NewsBusinessLogic?
-    var router: NewsViewRoutingLogic!
+    var router: NewsViewRoutingLogic?
    
     private var dataToDisplay = [NewsCellModel]()
     
