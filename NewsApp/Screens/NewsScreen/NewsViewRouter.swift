@@ -9,7 +9,7 @@ import UIKit
 
 protocol NewsViewRoutingLogic {
 
-    func navigateToNewsDetail()
+    func navigateToNewsDetail(newsDetailUrl: String)
 }
 
 class NewsViewRouter {
@@ -20,9 +20,9 @@ class NewsViewRouter {
 
 extension NewsViewRouter: NewsViewRoutingLogic {
   
-    func navigateToNewsDetail() {
+    func navigateToNewsDetail(newsDetailUrl: String) {
         
-        guard let newsDetailViewController = newsDetailBuilder?.buildNewsDetailScreen() else { return }
+        guard let newsDetailViewController = newsDetailBuilder?.buildNewsDetailScreen(newsDetailUrl: newsDetailUrl) else { return }
         
         viewController?.navigationController?.show(newsDetailViewController, sender: self)
     }

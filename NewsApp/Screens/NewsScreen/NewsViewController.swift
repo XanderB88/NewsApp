@@ -18,12 +18,12 @@ class NewsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     // MARK: - External variables
-    
+    var router: NewsViewRoutingLogic?
  
     // MARK: - Internal variables
     var interactor: NewsBusinessLogic?
-    var router: NewsViewRoutingLogic?
    
+    
     private var dataToDisplay = [NewsCellModel]()
     
     // MARK: - Lifecycle
@@ -69,7 +69,7 @@ extension NewsViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        router?.navigateToNewsDetail()
+        router?.navigateToNewsDetail(newsDetailUrl: dataToDisplay[indexPath.row].url)
     }
 }
 

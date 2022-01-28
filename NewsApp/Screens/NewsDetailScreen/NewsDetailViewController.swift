@@ -18,16 +18,16 @@ class NewsDetailViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var webView: WKWebView!
     
-    var interactor: NewsDetailBusinessLogic?
+    // MARK: - External variables
+    var router: (NewsDetailRoutingLogic & NewsDetailViewDataPassingLogic)?
+    
+    // MARK: - Internal variables
+    var interactor: (NewsDetailBusinessLogic & NewsDetailViewDataStoreLogic)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let homePage = "https://www.apple.com"
-        let url = URL(string: homePage)
-        let request = URLRequest(url: url!)
-       
-        webView.load(request)
+        interactor?.loadPage(webView: webView)
     }
 }
 
