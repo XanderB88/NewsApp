@@ -9,6 +9,7 @@ import Foundation
 
 protocol NewsDetailPresentationLogic {
     
+   func presentRequest(request: URLRequest)
 }
 
 class NewsDetailViewPresenter {
@@ -20,4 +21,8 @@ class NewsDetailViewPresenter {
 // MARK: - News detail presentation logic
 extension NewsDetailViewPresenter: NewsDetailPresentationLogic {
     
+    func presentRequest(request: URLRequest) {
+        
+        viewController?.displayPage(request: request)
+    }
 }

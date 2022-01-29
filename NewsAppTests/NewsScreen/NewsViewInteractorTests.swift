@@ -53,7 +53,7 @@ class NewsViewInteractorTests: XCTestCase {
         
         sut.fetchNews()
         
-        XCTAssertEqual(presenterSpy.news.count, workerSpy.newsResult.count, "fetchedNews() should ask the presenter to format the same amount of news it fetched")
+        XCTAssertEqual(presenterSpy.newsArticles.count, workerSpy.newsArticles.count, "fetchedNews() should ask the presenter to format the same amount of news it fetched")
     }
 
 }

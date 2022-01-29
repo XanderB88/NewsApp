@@ -11,6 +11,7 @@ import WebKit
 
 protocol NewsDetailDisplayLogic: AnyObject {
     
+    func displayPage(request: URLRequest)
 }
 
 class NewsDetailViewController: UIViewController {
@@ -19,19 +20,24 @@ class NewsDetailViewController: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     
     // MARK: - External variables
-    var router: (NewsDetailRoutingLogic & NewsDetailViewDataPassingLogic)?
+    var router: NewsDetailViewDataPassing?
     
     // MARK: - Internal variables
-    var interactor: (NewsDetailBusinessLogic & NewsDetailViewDataStoreLogic)?
+    var interactor: (NewsDetailBusinessLogic & NewsDetailViewDataStore)?
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        interactor?.loadPage(webView: webView)
+        interactor?.makeRequest()
     }
 }
 
 // MARK: - News detail display logic
 extension NewsDetailViewController: NewsDetailDisplayLogic {
-    
+  
+    func displayPage(request: URLRequest) {
+      
+        webView.load(request)
+    }
 }

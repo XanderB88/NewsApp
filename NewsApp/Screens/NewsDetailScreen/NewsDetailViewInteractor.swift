@@ -10,15 +10,15 @@ import WebKit
 
 protocol NewsDetailBusinessLogic {
     
-    func loadPage(webView: WKWebView)
+    func makeRequest()
 }
 
-protocol NewsDetailViewDataStoreLogic: AnyObject {
+protocol NewsDetailViewDataStore: AnyObject {
     
     var newsDetailUrl: String { get set }
 }
 
-class NewsDetailViewInteractor: NewsDetailViewDataStoreLogic  {
+class NewsDetailViewInteractor: NewsDetailViewDataStore {
     
     // MARK: - External variables
     var newsDetailUrl: String = ""
@@ -30,11 +30,11 @@ class NewsDetailViewInteractor: NewsDetailViewDataStoreLogic  {
 // MARK: - News detail business logic
 extension NewsDetailViewInteractor: NewsDetailBusinessLogic {
     
-    func loadPage(webView: WKWebView) {
+    func makeRequest() {
         
         let url = URL(string: newsDetailUrl)
         let request = URLRequest(url: url!)
        
-        webView.load(request)
+        presenter?.presentRequest(request: request)
     }
 }

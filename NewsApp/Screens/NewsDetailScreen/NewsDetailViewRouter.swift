@@ -7,20 +7,14 @@
 
 import Foundation
 
-protocol NewsDetailRoutingLogic {
+protocol NewsDetailViewDataPassing {
     
+    var dataStore: NewsDetailViewDataStore? { get }
 }
 
-protocol NewsDetailViewDataPassingLogic {
+class NewsDetailViewRouter: NewsDetailViewDataPassing {
     
-    var dataStore: NewsDetailViewDataStoreLogic? { get }
+    // MARK: - External variables
+    weak var dataStore: NewsDetailViewDataStore?
 }
 
-class NewsDetailViewRouter: NewsDetailViewDataPassingLogic {
-    
-    weak var dataStore: NewsDetailViewDataStoreLogic?
-}
-
-extension NewsDetailViewRouter: NewsDetailRoutingLogic {
-    
-}
