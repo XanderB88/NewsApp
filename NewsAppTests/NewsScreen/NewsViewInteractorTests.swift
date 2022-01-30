@@ -37,22 +37,28 @@ class NewsViewInteractorTests: XCTestCase {
     
     func testFetchNewsCallsWorkerToFetch() throws {
         
+        // When
         sut.fetchNews()
         
-        XCTAssertTrue(workerSpy.isCalledFetchNews, "Not started worker.fetchNews()")
+        // Then
+        XCTAssertTrue(workerSpy.isCalledFetchNews, "Worker should start fetchNews() method")
     }
     
     func testFetchNewsCallsPresenterToFetch() throws {
         
+        // When
         sut.fetchNews()
         
-        XCTAssertTrue(presenterSpy.isCalledPresentFetchedNews, "Not started presenter.present(:)")
+        // Then
+        XCTAssertTrue(presenterSpy.isCalledPresentFetchedNews, "Presenter should start present(:) method")
     }
     
     func testFetchNewsCallsPresenterToFormatFetchedNews() throws {
         
+        // When
         sut.fetchNews()
         
+        // Then
         XCTAssertEqual(presenterSpy.newsArticles.count, workerSpy.newsArticles.count, "fetchedNews() should ask the presenter to format the same amount of news it fetched")
     }
 

@@ -39,15 +39,19 @@ class NewsViewPresenterTests: XCTestCase {
 
     func testDisplayFetchedNewsCalledByPresenter() throws {
         
+        // When
         sut.present(data: [])
         
+        // Then
         XCTAssertTrue(viewControllerSpy.isCalledViewControllerDisplay, "Not started viewController.display(:)")
     }
     
     func testPresentFetchedNewsShouldFormatFetchedNewsForDisplay() throws {
         
+        // When
         sut.present(data: newsArticles)
         
+        // Then
         XCTAssertEqual(viewControllerSpy.displayedNews.count, newsArticles.count, "present(:) should ask the view controller to display the same amount of news it recieve")
     }
 }

@@ -24,7 +24,7 @@ class NewsViewController: UIViewController {
     var interactor: NewsBusinessLogic?
    
     
-    private var dataToDisplay = [NewsCellModel]()
+    var dataToDisplay = [NewsCellModel]()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -78,11 +78,12 @@ extension NewsViewController: NewsDisplayLogic {
     
     func display(data: [NewsCellModel]) {
         
+        self.dataToDisplay.removeAll()
+        self.dataToDisplay.append(contentsOf: data)
+        
         DispatchQueue.main.async {
-            self.dataToDisplay.removeAll()
-            self.dataToDisplay.append(contentsOf: data)
-            self.tableView.reloadData()
             
+            self.tableView.reloadData()
         }
     }
 }
