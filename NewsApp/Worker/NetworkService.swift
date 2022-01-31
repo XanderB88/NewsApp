@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol NetworkServiceWorkingLogic {
     
@@ -18,27 +19,21 @@ class NetworkService: NetworkServiceWorkingLogic {
        
         guard let url = URL(string: "https://hn.algolia.com/api/v1/search_by_date?tags=story") else { return }
         
-        let session = URLSession(configuration: .default)
+        let urlRequest = URLRequest(url: url)
         
-        let task = session.dataTask(with: url) { data, _, error in
+        AF.request(urlRequest).responseDecodable(of: NewsArticles.self) { response in
             
-            guard let safeData = data else {
-               
-                completionHandler(.failure(error!))
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-            
-                let newsResult = try decoder.decode(NewsArticles.self, from: safeData)
-                completionHandler(.success(newsResult.hits))
-            } catch {
+            switch response.result {
+                    
+                case .success(let result):
+                    
+                    completionHandler(.success(result.hits))
                 
-                completionHandler(.failure(error))
+                case .failure(let error):
+                    
+                    completionHandler(.failure(error))
             }
         }
-        task.resume()
+        
     }
 }
