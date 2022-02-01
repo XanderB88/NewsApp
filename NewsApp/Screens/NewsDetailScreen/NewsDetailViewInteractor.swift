@@ -32,8 +32,9 @@ extension NewsDetailViewInteractor: NewsDetailBusinessLogic {
     
     func makeRequest() {
         
-        let url = URL(string: newsDetailUrl)
-        let request = URLRequest(url: url!)
+        guard let url = URL(string: newsDetailUrl) else { return }
+        
+        let request = URLRequest(url: url)
        
         presenter?.presentRequest(request: request)
     }
