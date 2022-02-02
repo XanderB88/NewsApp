@@ -8,7 +8,10 @@
 import Foundation
 @testable import NewsApp
 
-class NewsDetailViewInteractorSpy: NewsDetailBusinessLogic {
+class NewsDetailViewInteractorSpy: NewsDetailBusinessLogic, NewsDetailViewDataStore {
+    
+    var newsDetailUrl: String = ""
+    
    
     private(set) var isCalledMakeRequest = false
  
